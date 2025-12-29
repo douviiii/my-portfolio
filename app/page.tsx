@@ -5,12 +5,53 @@ import { useEffect, useState, useRef } from "react";
 import ChatBot from "./components/ChatBot";
 import AppointmentBooking from "./components/AppointmentBooking";
 import ContactForm from "./components/ContactForm";
+import RocketIcon from "./components/RocketIcon";
+import DiagramIcon from "./components/DiagramIcon";
+import MortarboardIcon from "./components/MortarboardIcon";
+import DiplomaIcon from "./components/DiplomaIcon";
+import CustomerIcon from "./components/CustomerIcon";
+import ChatIcon from "./components/ChatIcon";
+import ComputerIcon from "./components/ComputerIcon";
 
 export default function Home() {
   const [isSticky, setIsSticky] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
   const headerRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  
+  const projects = [
+    {
+      title: "KMM-Movies-Demo",
+      githubUrl: "https://github.com/douviiii/KMM-Movies-Demo",
+      items: [
+        "Implemented Kotlin Multiplatform Mobile (KMM) architecture to share core business logic across Android and iOS.",
+        "Developed clean architecture layers (UseCase, Repository, Data Source) for separation of concerns.",
+        "Integrated remote movie API using Ktor client with error handling in shared code.",
+        "Managed state with Kotlin Flow and configured platform-specific data storage.",
+        "Set up CI pipeline with GitHub Actions for multiplatform builds and tests."
+      ]
+    },
+    {
+      title: "Calendar Working Training",
+      githubUrl: "https://github.com/douviiii/Calendar-Working-Training",
+      items: [
+        "Built training app to interact with Android's Calendar Provider API.",
+        "Designed custom UI for date/time input with calendar permissions handling.",
+        "Managed UI state using ViewModel and LiveData with lifecycle awareness.",
+        "Wrote unit and UI tests to ensure correctness of calendar operations."
+      ]
+    },
+    {
+      title: "ML Android Scan Object",
+      githubUrl: "https://github.com/douviiii/ML-Android-Scan-Object",
+      items: [
+        "Implemented real-time object detection using ML Kit.",
+        "Built responsive UI with XML for live previews and overlay annotations.",
+        "Processed and filtered detection results to support app logic.",
+        "Optimized performance by handling ML in background threads."
+      ]
+    }
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -97,7 +138,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="sticky-contact-button flex items-center px-3 py-1.5 bg-white border border-dashed border-[#E2852E] text-black rounded-full text-xs font-medium transition-all"
               >
-                <span>💼</span>
+                <Image src="/image copy 2.png" alt="LinkedIn" width={16} height={16} className="w-4 h-4" />
                 <span className="contact-text">LinkedIn</span>
               </a>
               <a
@@ -106,7 +147,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="sticky-contact-button flex items-center px-3 py-1.5 bg-white border border-dashed border-[#E2852E] text-black rounded-full text-xs font-medium transition-all"
               >
-                <span>💻</span>
+                <Image src="/image copy.png" alt="GitHub" width={16} height={16} className="w-4 h-4" />
                 <span className="contact-text">GitHub</span>
               </a>
             </div>
@@ -167,7 +208,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="contact-button flex items-center gap-2 text-black bg-white border border-dashed border-[#E2852E] transition-all hover:scale-105 px-4 py-2 rounded-full relative z-0"
                 >
-                  <span>💼</span>
+                  <Image src="/image copy 2.png" alt="LinkedIn" width={20} height={20} className="w-5 h-5" />
                   <span>LinkedIn</span>
                 </a>
                 <a
@@ -176,7 +217,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="contact-button flex items-center gap-2 text-black bg-white border border-dashed border-[#E2852E] transition-all hover:scale-105 px-4 py-2 rounded-full relative z-0"
                 >
-                  <span>💻</span>
+                  <Image src="/image copy.png" alt="GitHub" width={20} height={20} className="w-5 h-5" />
                   <span>GitHub</span>
                 </a>
               </div>
@@ -190,9 +231,12 @@ export default function Home() {
           <aside className="lg:col-span-1 space-y-8">
             {/* Professional Summary */}
             <section className="cv-section cv-section-card animate-slide-in-left animate-delay-100">
-              <h2 className="cv-section-title">
-                Professional Summary
-              </h2>
+              <div className="flex items-center gap-3 mb-4">
+                <RocketIcon />
+                <h2 className="cv-section-title mb-0">
+                  Professional Summary
+                </h2>
+              </div>
               <div className="cv-section-content">
                 <p className="text-sm leading-relaxed">
                   Mobile Developer with over 3 years of experience in Android development using Kotlin and Java. 
@@ -204,9 +248,12 @@ export default function Home() {
 
             {/* Technical Skills */}
             <section className="cv-section cv-section-card animate-slide-in-left animate-delay-200">
-              <h2 className="cv-section-title">
-                Technical Skills
-              </h2>
+              <div className="flex items-center gap-3 mb-4">
+                <DiagramIcon />
+                <h2 className="cv-section-title mb-0">
+                  Technical Skills
+                </h2>
+              </div>
               <div className="cv-section-content space-y-4">
                 <div>
                   <h3 className="font-semibold text-gray-800 mb-2 text-sm">Languages</h3>
@@ -252,9 +299,12 @@ export default function Home() {
 
             {/* Education */}
             <section className="cv-section cv-section-card animate-slide-in-left animate-delay-300">
-              <h2 className="cv-section-title">
-                Education
-              </h2>
+              <div className="flex items-center gap-3 mb-4">
+                <MortarboardIcon />
+                <h2 className="cv-section-title mb-0">
+                  Education
+                </h2>
+              </div>
               <div className="cv-section-content">
                 <h3 className="text-base font-semibold text-gray-800 mb-1">Passerelles numériques Vietnam</h3>
                 <p className="text-sm text-gray-700 mb-1">Information Technology</p>
@@ -264,9 +314,12 @@ export default function Home() {
 
             {/* Certifications */}
             <section className="cv-section cv-section-card animate-slide-in-left animate-delay-400">
-              <h2 className="cv-section-title">
-                Certifications
-              </h2>
+              <div className="flex items-center gap-3 mb-4">
+                <DiplomaIcon />
+                <h2 className="cv-section-title mb-0">
+                  Certifications
+                </h2>
+              </div>
               <ul className="cv-section-content space-y-2">
                 {["AWS Cloud Practitioner", "Microsoft Azure Fundamentals", "HackerRank Software Engineer Certificate"].map((cert) => (
                   <li key={cert} className="flex items-start gap-2 text-sm">
@@ -279,9 +332,12 @@ export default function Home() {
 
             {/* Activities */}
             <section className="cv-section cv-section-card animate-slide-in-left animate-delay-500">
-              <h2 className="cv-section-title">
-                Activities
-              </h2>
+              <div className="flex items-center gap-3 mb-4">
+                <CustomerIcon />
+                <h2 className="cv-section-title mb-0">
+                  Activities
+                </h2>
+              </div>
               <ul className="cv-section-content space-y-2">
                 {["Mentoring at Passerelles Numériques Vietnam", "Member at PNV-AA"].map((activity) => (
                   <li key={activity} className="flex items-start gap-2 text-sm">
@@ -294,9 +350,12 @@ export default function Home() {
 
             {/* Languages */}
             <section className="cv-section-card animate-slide-in-left animate-delay-500">
-              <h2 className="cv-section-title">
-                Languages
-              </h2>
+              <div className="flex items-center gap-3 mb-4">
+                <ChatIcon />
+                <h2 className="cv-section-title mb-0">
+                  Languages
+                </h2>
+              </div>
               <ul className="cv-section-content space-y-2">
                 <li className="flex items-center justify-between text-sm">
                   <span>Vietnamese</span>
@@ -313,46 +372,68 @@ export default function Home() {
           {/* Right Column - Experience & Projects */}
           <main className="lg:col-span-2 space-y-8">
             {/* Work Experience */}
-            <section className="cv-section cv-section-card animate-slide-in-right animate-delay-100">
-              <h2 className="text-2xl font-bold text-[#E2852E] mb-6 pb-3 border-b-2 border-[#E2852E]">
-                Work Experience
-              </h2>
+            <section className="cv-section cv-section-card animate-slide-in-right animate-delay-100 work-experience-section">
+              <div className="flex items-center gap-3 mb-6">
+                <ComputerIcon />
+                <h2 className="text-2xl font-bold text-[#E2852E] pb-3 border-b-2 border-[#E2852E] flex-1">
+                  Work Experience
+                </h2>
+              </div>
               
               <div className="space-y-6">
                 {/* Staffun */}
                 <div className="border-l-4 border-[#E2852E] pl-4 bg-gradient-to-r from-[#ABE0F0]/30 to-transparent p-4 rounded-r-lg">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                    <h3 className="text-xl font-semibold text-gray-900">
-                      Staffun - Android Developer
-                    </h3>
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#E2852E]/10 text-[#E2852E] border border-[#E2852E]/30">
-                      July 2025 - Now
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900">
+                        Staffun - Android Developer
+                      </h3>
+                      <p className="text-sm text-gray-600 mt-1">Full-time • Ho Chi Minh City, Vietnam</p>
+                    </div>
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#E2852E]/10 text-[#E2852E] border border-[#E2852E]/30 mt-2 md:mt-0">
+                      July 2025 - Present
                     </span>
                   </div>
-                  <div className="space-y-4 text-gray-700 text-sm">
+                  
+                  <div className="space-y-5 text-gray-700 text-sm">
                     <div>
-                      <p className="font-semibold text-gray-900 mb-2">Customer Support & Technical Assistance</p>
-                      <ul className="list-disc list-inside space-y-1 ml-2">
-                        <li>Delivered responsive technical support, resolving customer inquiries and application issues to ensure optimal user experience</li>
+                      <p className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                        <span className="text-[#E2852E]">📞</span>
+                        Customer Support & Technical Assistance
+                      </p>
+                      <ul className="list-disc list-inside space-y-1.5 ml-2 text-gray-700">
+                        <li>Provided responsive technical support to end-users, troubleshooting application issues and resolving customer inquiries promptly</li>
+                        <li>Diagnosed and fixed bugs reported by users, improving overall application stability and user satisfaction</li>
+                        <li>Collaborated with product and QA teams to identify root causes of issues and implement long-term solutions</li>
                       </ul>
                     </div>
+                    
                     <div>
-                      <p className="font-semibold text-gray-900 mb-2">Project: LINKON Driver Transportation</p>
-                      <ul className="list-disc list-inside space-y-1 ml-2">
-                        <li>Architected and developed Android applications using Kotlin, Clean Architecture, and MVVM pattern, resulting in scalable and maintainable codebase</li>
-                        <li>Integrated Google Maps and Navigation APIs to deliver real-time location tracking and route optimization for driver navigation</li>
-                        <li>Established CI/CD pipelines with GitHub Actions, automating builds and test execution, reducing deployment time by 40%</li>
-                        <li>Built custom UI components and views, enhancing user interface responsiveness and creating intuitive user experiences</li>
-                        <li>Implemented comprehensive Firebase integration (Crashlytics, ANR monitoring, Remote Config, FCM) to improve app stability and enable feature toggling</li>
+                      <p className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                        <span className="text-[#E2852E]">🚗</span>
+                        Project: LINKON Driver Transportation Application
+                      </p>
+                      <p className="text-xs text-gray-600 mb-2 italic">A comprehensive transportation management platform for drivers</p>
+                      <ul className="list-disc list-inside space-y-1.5 ml-2 text-gray-700">
+                        <li><strong>Architecture & Development:</strong> Architected and developed the Android application from ground up using Kotlin, implementing Clean Architecture principles with MVVM pattern. Designed modular architecture with clear separation of concerns (Presentation, Domain, Data layers), resulting in a highly scalable and maintainable codebase</li>
+                        <li><strong>Location Services:</strong> Integrated Google Maps SDK and Navigation APIs to deliver real-time location tracking, route optimization, and turn-by-turn navigation for drivers. Implemented background location services with battery optimization techniques to ensure continuous tracking without draining device battery</li>
+                        <li><strong>CI/CD Automation:</strong> Established comprehensive CI/CD pipelines using GitHub Actions, automating build processes, unit test execution, and deployment workflows. This automation reduced manual deployment time by 40% and improved code quality through automated testing</li>
+                        <li><strong>UI/UX Development:</strong> Built custom UI components and reusable views using Material Design principles, ensuring consistent design language across the application. Enhanced user interface responsiveness and created intuitive user experiences that improved user engagement</li>
+                        <li><strong>Firebase Integration:</strong> Implemented comprehensive Firebase services including Crashlytics for crash reporting, ANR (Application Not Responding) monitoring, Remote Config for feature toggling, and FCM (Firebase Cloud Messaging) for push notifications. This integration significantly improved app stability and enabled dynamic feature management without app updates</li>
                       </ul>
                     </div>
+                    
                     <div>
-                      <p className="font-semibold text-gray-900 mb-2">Project: SANDTONER</p>
-                      <ul className="list-disc list-inside space-y-1 ml-2">
-                        <li>Resolved critical Play Store deployment issues including app signing, version conflicts, and policy compliance, ensuring successful releases</li>
-                        <li>Optimized app performance by implementing list virtualization, image lazy loading, and data prefetching, reducing memory usage by 35% and eliminating UI lag</li>
-                        <li>Enhanced real-time chat functionality with WebSocket implementation, achieving 99.9% message delivery reliability</li>
-                        <li>Integrated Firebase Analytics to gain actionable user insights, enabling data-driven product decisions and improving user engagement metrics</li>
+                      <p className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                        <span className="text-[#E2852E]">💬</span>
+                        Project: SANDTONER Application
+                      </p>
+                      <p className="text-xs text-gray-600 mb-2 italic">A communication and collaboration platform</p>
+                      <ul className="list-disc list-inside space-y-1.5 ml-2 text-gray-700">
+                        <li><strong>Play Store Deployment:</strong> Resolved critical Play Store deployment issues including app signing configuration, version conflicts, and Google Play policy compliance. Successfully navigated the app review process and ensured all releases met Play Store guidelines, resulting in successful app launches</li>
+                        <li><strong>Performance Optimization:</strong> Optimized application performance through multiple techniques: implemented RecyclerView list virtualization for efficient memory usage, image lazy loading with caching strategies, and intelligent data prefetching. These optimizations reduced memory usage by 35% and completely eliminated UI lag and frame drops</li>
+                        <li><strong>Real-time Communication:</strong> Enhanced real-time chat functionality by implementing WebSocket connections with automatic reconnection logic and message queuing. Achieved 99.9% message delivery reliability and reduced message latency to under 100ms, significantly improving user communication experience</li>
+                        <li><strong>Analytics & Insights:</strong> Integrated Firebase Analytics with custom event tracking to gain actionable user insights. Created comprehensive dashboards for user behavior analysis, enabling data-driven product decisions. This led to improved user engagement metrics and informed feature prioritization</li>
                       </ul>
                     </div>
                   </div>
@@ -360,133 +441,120 @@ export default function Home() {
 
                 {/* CastTV */}
                 <div className="border-l-4 border-[#E2852E] pl-4 bg-gradient-to-r from-[#ABE0F0]/30 to-transparent p-4 rounded-r-lg">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                    <h3 className="text-xl font-semibold text-gray-900">
-                      CastTV - Android Developer - Kotlin
-                    </h3>
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#E2852E]/10 text-[#E2852E] border border-[#E2852E]/30">
-                      Feb 2025 - Apr 2025
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900">
+                        CastTV - Android Developer
+                      </h3>
+                      <p className="text-sm text-gray-600 mt-1">Full-time • Remote</p>
+                    </div>
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#E2852E]/10 text-[#E2852E] border border-[#E2852E]/30 mt-2 md:mt-0">
+                      February 2025 - April 2025
                     </span>
                   </div>
-                  <ul className="list-disc list-inside space-y-1 ml-2 text-gray-700 text-sm">
-                    <li>Developed CastTV Android application with Google Cast SDK, enabling seamless content streaming to Chromecast devices</li>
-                    <li>Designed modern, responsive UI using Jetpack Compose, delivering smooth user interactions and improved user experience</li>
-                    <li>Integrated Firebase Analytics to track user behavior and engagement patterns, informing product optimization strategies</li>
-                    <li>Implemented monetization solutions with AdMob and RevenueCat, managing subscriptions and in-app purchases effectively</li>
+                  
+                  <p className="text-xs text-gray-600 mb-3 italic">A streaming application with Chromecast support</p>
+                  
+                  <ul className="list-disc list-inside space-y-1.5 ml-2 text-gray-700 text-sm">
+                    <li><strong>Google Cast Integration:</strong> Developed CastTV Android application with full Google Cast SDK integration, enabling seamless content streaming to Chromecast devices. Implemented cast discovery, session management, and media queue handling to provide smooth casting experience across different content types</li>
+                    <li><strong>Modern UI Development:</strong> Designed and implemented modern, responsive user interface using Jetpack Compose, leveraging declarative UI patterns and Material Design 3 components. Created smooth animations and transitions, delivering enhanced user interactions and significantly improved user experience compared to traditional XML-based layouts</li>
+                    <li><strong>User Analytics:</strong> Integrated Firebase Analytics with comprehensive event tracking to monitor user behavior, content consumption patterns, and engagement metrics. Analyzed data to inform product optimization strategies and identify areas for feature improvements</li>
+                    <li><strong>Monetization Strategy:</strong> Implemented comprehensive monetization solutions using AdMob for display and video advertisements, and RevenueCat for subscription management and in-app purchases. Configured subscription tiers, trial periods, and purchase flows, enabling effective revenue generation while maintaining positive user experience</li>
                   </ul>
                 </div>
 
                 {/* NAB Innovation Centre */}
                 <div className="border-l-4 border-[#E2852E] pl-4 bg-gradient-to-r from-[#ABE0F0]/30 to-transparent p-4 rounded-r-lg">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                    <h3 className="text-xl font-semibold text-gray-900">
-                      NAB Innovation Centre Vietnam - Android Developer - Kotlin/Java
-                    </h3>
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#E2852E]/10 text-[#E2852E] border border-[#E2852E]/30">
-                      Aug 2022 - Dec 2024
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900">
+                        NAB Innovation Centre Vietnam - Android Developer
+                      </h3>
+                      <p className="text-sm text-gray-600 mt-1">Full-time • Ho Chi Minh City, Vietnam</p>
+                    </div>
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#E2852E]/10 text-[#E2852E] border border-[#E2852E]/30 mt-2 md:mt-0">
+                      August 2022 - December 2024
                     </span>
                   </div>
-                  <ul className="list-disc list-inside space-y-1 ml-2 text-gray-700 text-sm">
-                    <li>Enhanced application security by implementing Snyk for continuous vulnerability scanning and dependency management, reducing security risks</li>
-                    <li>Maintained compliance with security policies by proactively identifying and updating outdated dependencies</li>
-                    <li>Evaluated and adapted to Android SDK versions 33-35, ensuring compatibility and leveraging new platform capabilities</li>
-                    <li>Reduced APK size by 25% and improved performance by converting PNG assets to vector drawables, enhancing scalability across devices</li>
-                    <li>Delivered seamless user onboarding experience with robust form validation, local data caching, and comprehensive error handling</li>
-                    <li>Collaborated with cross-functional teams to establish secure coding standards, minimizing security vulnerabilities in production</li>
-                    <li>Architected scalable features using MVVM with Repository and UseCase patterns, improving code maintainability and test coverage</li>
-                    <li>Applied design patterns (Singleton, DI, Adapter) to enhance code quality, resulting in improved reusability and easier unit testing</li>
+                  
+                  <p className="text-xs text-gray-600 mb-3 italic">Banking and financial services mobile application development</p>
+                  
+                  <ul className="list-disc list-inside space-y-1.5 ml-2 text-gray-700 text-sm">
+                    <li><strong>Security Enhancement:</strong> Enhanced application security by implementing Snyk for continuous vulnerability scanning and automated dependency management. Established security policies and workflows that proactively identified and remediated security vulnerabilities, reducing security risks and ensuring compliance with banking industry standards</li>
+                    <li><strong>Dependency Management:</strong> Maintained strict compliance with security policies by regularly auditing and updating outdated dependencies. Created automated dependency update workflows that ensured all third-party libraries were kept current with security patches, minimizing exposure to known vulnerabilities</li>
+                    <li><strong>Platform Adaptation:</strong> Evaluated and adapted application to Android SDK versions 33-35, ensuring full compatibility with latest Android features and platform capabilities. Leveraged new APIs and improvements in each SDK version to enhance app functionality and user experience</li>
+                    <li><strong>Asset Optimization:</strong> Reduced APK size by 25% and improved application performance by converting PNG image assets to vector drawables (SVG). This optimization enhanced scalability across different screen densities and resolutions while maintaining visual quality and reducing memory footprint</li>
+                    <li><strong>User Onboarding:</strong> Delivered seamless user onboarding experience by implementing robust form validation, local data caching strategies, and comprehensive error handling. Created intuitive step-by-step flows that guided users through account setup and feature discovery, resulting in improved user retention</li>
+                    <li><strong>Security Standards:</strong> Collaborated with cross-functional teams including security, QA, and product teams to establish and enforce secure coding standards. Conducted code reviews focused on security best practices, minimizing security vulnerabilities in production and ensuring compliance with financial industry regulations</li>
+                    <li><strong>Architecture Design:</strong> Architected scalable features using MVVM (Model-View-ViewModel) pattern combined with Repository and UseCase patterns. This architecture improved code maintainability, testability, and enabled better separation of concerns. Increased unit test coverage significantly through this architectural approach</li>
+                    <li><strong>Design Patterns:</strong> Applied various design patterns including Singleton for shared resources, Dependency Injection for loose coupling, and Adapter patterns for data transformation. These patterns enhanced code quality, improved reusability, and made unit testing more straightforward, resulting in more maintainable and robust codebase</li>
                   </ul>
                 </div>
 
                 {/* Blue Otter */}
-                <div className="border-l-4 border-[#E2852E] pl-4 bg-gradient-to-r from-[#ABE0F0]/30 to-transparent p-4 rounded-r-lg">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                    <h3 className="text-xl font-semibold text-gray-900">
-                      Blue Otter Vietnam - Front-end Developer - JavaScript
-                    </h3>
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#E2852E]/10 text-[#E2852E] border border-[#E2852E]/30">
-                      May 2021 - Jul 2021
+                <div className="border-l-4 border-[#E2852E] pl-4 bg-gradient-to-r from-[#ABE0F0]/30 to-transparent p-4 rounded-r-lg mb-6">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900">
+                        Blue Otter Vietnam - Front-end Developer
+                      </h3>
+                      <p className="text-sm text-gray-600 mt-1">Internship • Ho Chi Minh City, Vietnam</p>
+                    </div>
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#E2852E]/10 text-[#E2852E] border border-[#E2852E]/30 mt-2 md:mt-0">
+                      May 2021 - July 2021
                     </span>
                   </div>
-                  <ul className="list-disc list-inside space-y-1 ml-2 text-gray-700 text-sm">
-                    <li>Developed responsive food ordering web application using React and Ant Design, delivering seamless user experience across devices</li>
-                    <li>Implemented Redux for centralized state management, efficiently handling complex UI interactions and data flows</li>
-                    <li>Integrated Firebase Authentication and Firestore to enable secure user authentication and real-time data synchronization</li>
+                  
+                  <p className="text-xs text-gray-600 mb-3 italic">Food ordering and delivery web application</p>
+                  
+                  <ul className="list-disc list-inside space-y-1.5 ml-2 text-gray-700 text-sm">
+                    <li><strong>Responsive Web Development:</strong> Developed responsive food ordering web application using React.js and Ant Design component library. Implemented mobile-first design approach, ensuring seamless user experience across desktop, tablet, and mobile devices. Created reusable components and maintained consistent design system throughout the application</li>
+                    <li><strong>State Management:</strong> Implemented Redux for centralized state management, efficiently handling complex UI interactions and data flows. Designed Redux store structure with proper action creators, reducers, and middleware to manage application state, cart management, user authentication, and order processing</li>
+                    <li><strong>Backend Integration:</strong> Integrated Firebase Authentication for secure user authentication with multiple sign-in methods (email/password, Google, Facebook). Implemented Firestore database for real-time data synchronization, enabling live order updates and inventory management. Created efficient data queries and real-time listeners for optimal performance</li>
                   </ul>
                 </div>
               </div>
             </section>
 
-            {/* Projects */}
-            <section className="cv-section-card animate-slide-in-right animate-delay-200">
-              <h2 className="text-2xl font-bold text-[#E2852E] mb-6 pb-3 border-b-2 border-[#E2852E]">
-                Projects
-              </h2>
-              <div className="space-y-4">
-                {[
-                  {
-                    title: "KMM-Movies-Demo",
-                    githubUrl: "https://github.com/douviiii/KMM-Movies-Demo",
-                    items: [
-                      "Implemented Kotlin Multiplatform Mobile (KMM) architecture to share core business logic across Android and iOS.",
-                      "Developed clean architecture layers (UseCase, Repository, Data Source) for separation of concerns.",
-                      "Integrated remote movie API using Ktor client with error handling in shared code.",
-                      "Managed state with Kotlin Flow and configured platform-specific data storage.",
-                      "Set up CI pipeline with GitHub Actions for multiplatform builds and tests."
-                    ]
-                  },
-                  {
-                    title: "Calendar Working Training",
-                    githubUrl: "https://github.com/douviiii/Calendar-Working-Training",
-                    items: [
-                      "Built training app to interact with Android's Calendar Provider API.",
-                      "Designed custom UI for date/time input with calendar permissions handling.",
-                      "Managed UI state using ViewModel and LiveData with lifecycle awareness.",
-                      "Wrote unit and UI tests to ensure correctness of calendar operations."
-                    ]
-                  },
-                  {
-                    title: "ML Android Scan Object",
-                    githubUrl: "https://github.com/douviiii/ML-Android-Scan-Object",
-                    items: [
-                      "Implemented real-time object detection using ML Kit.",
-                      "Built responsive UI with XML for live previews and overlay annotations.",
-                      "Processed and filtered detection results to support app logic.",
-                      "Optimized performance by handling ML in background threads."
-                    ]
-                  }
-                ].map((project, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-gradient-to-r from-[#FFEE91]/40 via-[#ABE0F0]/30 to-[#FFEE91]/20 p-5 rounded-xl border border-[#F5C857]/50 hover:shadow-md transition-all relative animate-fade-in-up"
-                    style={{ animationDelay: `${0.3 + idx * 0.1}s` }}
-                  >
-                    <div className="flex items-start justify-between mb-3">
-                      <h3 className="text-lg font-bold text-gray-900">{project.title}</h3>
-                      {project.githubUrl && (
-                        <a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 text-[#E2852E] rounded-full text-sm font-medium transition-all hover:border-[#E2852E] hover:bg-[#E2852E]/5 hover:scale-105"
-                        >
-                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-                          </svg>
-                          <span>GitHub</span>
-                        </a>
-                      )}
-                    </div>
-                    <ul className="list-disc list-inside space-y-1 ml-2 text-gray-700 text-sm">
-                      {project.items.map((item, i) => (
-                        <li key={i}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            </section>
           </main>
+        </div>
+
+        {/* Projects Section */}
+        <div className="w-full mt-12 mb-8 px-4 md:px-8 lg:px-12">
+          <section className="w-full">
+            <h2 className="text-2xl font-bold text-[#E2852E] mb-6 pb-3 border-b-2 border-[#E2852E]">
+              Projects
+            </h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {projects.map((project, idx) => (
+                <div
+                  key={idx}
+                  className="bg-gradient-to-r from-[#FFEE91]/40 via-[#ABE0F0]/30 to-[#FFEE91]/20 p-5 md:p-6 rounded-xl border border-[#F5C857]/50 hover:shadow-lg transition-all h-full flex flex-col"
+                >
+                  <div className="flex flex-col gap-3 mb-4">
+                    <h3 className="text-lg md:text-xl font-bold text-gray-900">{project.title}</h3>
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 text-[#E2852E] rounded-full text-sm font-medium transition-all hover:border-[#E2852E] hover:bg-[#E2852E]/5 hover:scale-105 w-fit"
+                      >
+                        <Image src="/image copy.png" alt="GitHub" width={16} height={16} className="w-4 h-4" />
+                        <span>GitHub</span>
+                      </a>
+                    )}
+                  </div>
+                  <ul className="list-disc list-inside space-y-2 ml-2 text-gray-700 text-sm flex-grow">
+                    {project.items.map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
 
         {/* Contact Form Section */}

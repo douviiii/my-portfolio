@@ -148,6 +148,16 @@ body {
   transform: translateY(-2px);
 }
 
+.work-experience-section {
+  padding-bottom: 2rem !important;
+}
+
+@media (min-width: 768px) {
+  .work-experience-section {
+    padding-bottom: 2.5rem !important;
+  }
+}
+
 .cv-section-title {
   font-size: 1.25rem;
   font-weight: 700;
@@ -275,5 +285,75 @@ body {
   color: white !important;
   border-color: transparent !important;
   background-color: transparent !important;
+}
+
+/* Rocket Icon */
+.rocket-icon-wrapper {
+  background: transparent;
+}
+
+.rocket-gif {
+  display: block;
+  background: transparent;
+}
+
+/* Diagram Icon */
+.diagram-icon-wrapper {
+  background: transparent;
+}
+
+.diagram-gif {
+  display: block;
+  background: transparent;
+}
+
+/* Mortarboard Icon */
+.mortarboard-icon-wrapper {
+  background: transparent;
+}
+
+.mortarboard-gif {
+  display: block;
+  background: transparent;
+}
+
+/* Diploma Icon */
+.diploma-icon-wrapper {
+  background: transparent;
+}
+
+.diploma-gif {
+  display: block;
+  background: transparent;
+}
+
+/* Customer Icon */
+.customer-icon-wrapper {
+  background: transparent;
+}
+
+.customer-gif {
+  display: block;
+  background: transparent;
+}
+
+/* Chat Icon */
+.chat-icon-wrapper {
+  background: transparent;
+}
+
+.chat-gif {
+  display: block;
+  background: transparent;
+}
+
+/* Computer Icon */
+.computer-icon-wrapper {
+  background: transparent;
+}
+
+.computer-gif {
+  display: block;
+  background: transparent;
 }
 
